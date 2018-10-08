@@ -1,0 +1,23 @@
+{% load cms_tags %}
+{% if placeholder = 'megamenu' %}
+    <div class="{{ object.get_classes }}">
+        <div class="padded">
+        {% if object.title %}
+            <div class="heading">{{ object.title }}</div>
+        {% endif %}
+        {% for plugin in object.child_plugin_instances %}
+            {% render_plugin plugin %}
+        {% endfor %}
+        </div>
+    </div>
+{% else %}
+    <div class="col-sm-3 col-xs-6">
+        {% if object.title %}
+            <div class="heading">{{ object.title }}</div>
+        {% endif %}
+        {% for plugin in object.child_plugin_instances %}
+            {% render_plugin plugin %}
+        {% endfor %}
+    </div>
+
+{% endif %}
