@@ -11,7 +11,7 @@ class MegamenuSectionPlugin(CMSPluginBase):
     render_template = 'megamenu/section.html'
     admin_preview = False
     allow_children = True
-    child_classes = ['MegamenuCategoryListPlugin', 'PromoPlugin', 'TextPlugin']
+    child_classes = ['TextPlugin', 'Bootstrap4CtaPlugin', 'JSLinkListPlugin',]
 
     def render(self, context, instance, placeholder):
         context.update({
