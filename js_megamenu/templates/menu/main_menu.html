@@ -1,0 +1,20 @@
+{% load cms_tags %}
+
+{% for child in children %}
+  {% if child.megamenu %}
+    <li class="dropdown{% if child.selected %} active{% endif %}{% if child.ancestor %} active{% endif %}">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ child.get_menu_title }}</a>
+      <ul class="dropdown-menu">
+        <li>
+          <div class="container">
+            <div class="row">
+              {% render_placeholder child.megamenu %}
+            </div>
+          </div>
+        </li>
+      </ul>
+    </li>
+  {% else %}
+    <li><a href="{{ child.attr.redirect_url|default:child.get_absolute_url }}">{{ child.get_menu_title }}</a></li>
+  {% endif %}
+{% endfor %}
