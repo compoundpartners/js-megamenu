@@ -12,7 +12,7 @@ class MegamenuSectionPlugin(CMSPluginBase):
     admin_preview = False
     allow_children = True
     child_classes = ['TextPlugin', 'Bootstrap4BoxoutPlugin',
-        'JSLinkListPlugin', 'Bootstrap4CollapsePlugin']
+        'JSLinkListPlugin', 'Bootstrap4CollapsePlugin', 'PromoUnitPlugin']
 
     def render(self, context, instance, placeholder):
         context.update({

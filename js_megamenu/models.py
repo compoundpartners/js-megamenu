@@ -8,6 +8,7 @@ class Section(CMSPlugin):
         ('3', '1/4'),
         ('4', '1/3'),
         ('6', '1/2'),
+        ('8', '2/3'),
     )
     size = models.CharField(max_length=1, choices=SIZE_CHOICES, default='2')
     title = models.CharField(max_length=255, blank=True)
