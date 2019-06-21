@@ -15,10 +15,16 @@ class MegamenuSectionPlugin(CMSPluginBase):
         'Bootstrap4BoxoutPlugin',
         'JSLinkListPlugin',
         'Bootstrap4CollapsePlugin',
-        'Bootstrap4LinkPlugin', 
+        'Bootstrap4LinkPlugin',
         'PromoUnitPlugin']
 
     def render(self, context, instance, placeholder):
+        classes = [
+            instance.get_classes(),
+            instance.attributes.get('class'),
+        ]
+        classes = ' '.join(_class for _class in classes if _class)
+        instance.attributes['class'] = classes
         context.update({
             'object': instance,
             'placeholder': placeholder,

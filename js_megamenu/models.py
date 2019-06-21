@@ -1,5 +1,6 @@
 from django.db import models
 from cms.models import CMSPlugin
+from djangocms_attributes_field.fields import AttributesField
 
 
 class Section(CMSPlugin):
@@ -12,6 +13,7 @@ class Section(CMSPlugin):
     )
     size = models.CharField(max_length=1, choices=SIZE_CHOICES, default='2')
     title = models.CharField(max_length=255, blank=True)
+    attributes = AttributesField(verbose_name='Attributes', blank=True)
 
     def __unicode__(self):
         return self.get_size_display()
