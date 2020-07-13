@@ -1,3 +1,4 @@
+from django.core.cache import cache
 from cms.models import Placeholder
 from menus.base import Modifier
 from menus.menu_pool import menu_pool
@@ -6,10 +7,12 @@ from menus.menu_pool import menu_pool
 class InsertMegaMenu(Modifier):
 
     def modify(self, request, nodes, namespace, root_id, post_cut, breadcrumb):
-        menu = {}
         if post_cut:
-            for placeholder in Placeholder.objects.filter(slot='megamenu', page__publisher_is_draft=False, cmsplugin__id__isnull=False):
-                menu[placeholder.page.pk] = placeholder
+            menu = cache.get('mega-menu-dict', {})
+            if not menu:
+                for placeholder in Placeholder.objects.filter(slot='megamenu', cmsplugin__id__isnull=False).distinct():
+                    menu[placeholder.page.id] = placeholder
+                cache.set('mega-menu-dict', menu)
             for node in nodes:
                 if node.id in menu:
                     node.megamenu = menu[node.id]
