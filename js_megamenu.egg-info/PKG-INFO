@@ -1,10 +1,15 @@
 Metadata-Version: 1.0
 Name: js-megamenu
-Version: 0.15
+Version: 0.16
 Summary: JumpSuite Megamenu
 ====
 
 
+You can use page extention in template
+
+{% if request.toolbar.edit_mode and request.current_page.megamenuextension.show_megamenu %}
+    {% placeholder megamenu %}
+{% endif %}
 
 Home-page: UNKNOWN
 Author: Compound Partners Ltd

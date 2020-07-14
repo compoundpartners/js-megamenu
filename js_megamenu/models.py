@@ -1,6 +1,22 @@
+# -*- coding: utf-8 -*-
+
+from __future__ import unicode_literals
+
 from django.db import models
+from django.utils.encoding import python_2_unicode_compatible
+from django.utils.translation import ugettext as _
+
 from cms.models import CMSPlugin
+from cms.extensions import PageExtension
+from cms.extensions.extension_pool import extension_pool
+
 from djangocms_attributes_field.fields import AttributesField
+
+
+class MegamenuExtension(PageExtension):
+    show_megamenu = models.BooleanField(_('Show Megamenu Placeholder'), null=False, default=False)
+
+extension_pool.register(MegamenuExtension)
 
 
 class Section(CMSPlugin):
