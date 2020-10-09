@@ -1,7 +1,6 @@
 LICENSE
 MANIFEST.in
 README.rst
-setup.cfg
 setup.py
 js_megamenu/__init__.py
 js_megamenu/admin.py
