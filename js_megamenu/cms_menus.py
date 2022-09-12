@@ -19,6 +19,7 @@ class InsertMegaMenu(Modifier):
             for node in nodes:
                 if node.id in menu:
                     node.megamenu = menu[node.id]
-                    if node.id == request.current_page.id:
-                        setattr(request.current_page, 'is_there_megamenu', True)
+                    if hasattr(request, 'current_page') and request.current_page:
+                        if node.id == request.current_page.id:
+                            setattr(request.current_page, 'is_there_megamenu', True)
         return nodes
