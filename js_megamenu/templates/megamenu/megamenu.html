@@ -1,0 +1,11 @@
+{% load cms_tags %}
+<div">
+    <div>
+    {% if object.title %}
+        <div>{{ object.title }}</div>
+    {% endif %}
+    {% for plugin in object.child_plugin_instances %}
+        {% render_plugin plugin %}
+    {% endfor %}
+    </div>
+</div>

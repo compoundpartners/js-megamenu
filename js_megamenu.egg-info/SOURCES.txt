@@ -1,12 +1,14 @@
 LICENSE
 MANIFEST.in
 README.rst
+setup.cfg
 setup.py
 js_megamenu/__init__.py
 js_megamenu/admin.py
 js_megamenu/cms_menus.py
 js_megamenu/cms_plugins.py
 js_megamenu/cms_toolbars.py
+js_megamenu/forms.py
 js_megamenu/menu.py
 js_megamenu/models.py
 js_megamenu.egg-info/PKG-INFO
@@ -18,6 +20,11 @@ js_megamenu/migrations/0001_initial.py
 js_megamenu/migrations/0002_auto_20190603_0837.py
 js_megamenu/migrations/0003_section_attributes.py
 js_megamenu/migrations/0004_megamenuextension.py
+js_megamenu/migrations/0005_megamenu_panel.py
+js_megamenu/migrations/0006_auto_20220913_1030.py
 js_megamenu/migrations/__init__.py
+js_megamenu/templates/megamenu/megamenu.html
+js_megamenu/templates/megamenu/panel.html
 js_megamenu/templates/megamenu/section.html
+js_megamenu/templates/megamenu/submenu.html
 js_megamenu/templates/menu/main_menu.html
